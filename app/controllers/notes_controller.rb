@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
+    @meters = Meter.all
     @notes = Note.all
   end
 
@@ -65,6 +66,10 @@ class NotesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_note
       @note = Note.find(params[:id])
+    end
+
+    def set_meter
+      @meter = Meter.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
